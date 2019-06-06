@@ -1,0 +1,398 @@
+/*Bibliotecas*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <windows.h>
+#include <conio.h>
+
+/*Funções*/
+/*(anima1, anima) Função usada para fazer pequenas animções.*/
+void anima1(){
+    Sleep(250);
+}
+void anima(){
+    Sleep(1000);
+}
+/*Função usada para avisar ao jogador que ele errou a pergunta.*/
+void erra_pergunta(){
+    printf(".\n");anima();
+    printf("Quem sabe na pr%cxima =(\n", 162);
+    printf("Seu carrinho continua na mesma casa.\n");
+}
+/*(soma, sub, mult, divi, quad) Funções usadas para realizar operações matemáticas.*/
+int soma (int num1, int num2){
+    return(num1+num2);
+}
+int sub (int num1, int num2){
+    return(num1-num2);
+}
+int mult (int num1, int num2){
+    return(num1*num2);
+}
+int divi (int num1, int num2){
+    return(num1/num2);
+}
+int quad (int num1){
+    return(num1*num1);
+}
+
+/*Programa principal.*/
+int main()
+{
+
+/*Variável int usada nos contadores  dos "for".*/
+    int cont1, cont2, prog;
+
+/*Variável char usada para guardar o nome do jogador.*/
+    char usu[50];
+
+/*(n1, n2) Número aleatório 1 e 2; (r, rU) Resposta correta e resposta do usúario;
+(op, op2) Usados  para  iniciar o jogo e escolher qual modalidade respectivamente.*/
+	int n1, n2, r, rU, op, op2;
+
+/*Respostas das questões.*/
+    int capital, lingua, heroi, lindo, mathr1, mathr2, resp1, resp2, resp3, resp4, resp5;
+
+/*Pontos usados para fazer o carrinho andar*/
+    int quest1,quest2,quest3,quest4,quest5, resto_ponto, pontos;
+
+    /*srand é usado para definir um número para o rand onde ele busca um número
+    aleatório que eu defini que fosse entre 1  e 50 e quando eu coloco "NULL"
+    eu não preciso ficar mudando o número, ao invés disso eu defino a contagem
+    de segundos total passados desde 1 de janeiro de 1970 até a data atual e assim
+    ele fica mudando o número constantemente.*/
+    srand(time(NULL));
+
+    /*Gerador de número "aleatório" (n1)*/
+    for (n1=0; n1 < 1; n1++) {
+
+    n1=rand() % 50;
+
+  }
+    /*Gerador de número "aleatório" (n2)*/
+    for (n2=0; n2 < 1; n2++) {
+
+    n2=rand() % 50;
+
+  }
+ /*(system color) Usado para  trocar a cor do texto  e do fundo ou de apenas um deles.*/
+    system("color 2");
+
+    printf ("\t\t\t\t*================================================*\n");anima1();
+    printf ("\t\t\t\t|        ___   ___  _________  ___     ___        |\n");anima1();
+    printf ("\t\t\t\t|        XXX   XXX  XXXXXXXXX  XXX_   _XXX        |\n");anima1();
+    printf ("\t\t\t\t|        XXX   XXX  XXXXXXXXX  XXXX_ _XXXX        |\n");anima1();
+    printf ("\t\t\t\t|        XXX   XXX  XXX___XXX  XXXXX_XXXXX        |\n");anima1();
+    printf ("\t\t\t\t|        XXX   XXX  XXXXXXXXX  XXX XXX XXX        |\n");anima1();
+    printf ("\t\t\t\t|        XXX___XXX  XXXXXXXXX  XXX  X  XXX        |\n");anima1();
+    printf ("\t\t\t\t|        XXXXXXXXX  XXX   XXX  XXX     XXX        |\n");anima1();
+    printf ("\t\t\t\t|        XXXXXXXXX  XXX   XXX  XXX     XXX        |\n");anima1();
+    printf ("\t\t\t\t|                                                 |\n");anima1();
+    printf ("\t\t\t\t*================================================*\n");anima1();
+
+    printf("\n");printf("\n");printf("\n");
+
+/*Pausar o programa e pedir que o jogador aperte alguma tecla para continuar.*/
+    system("pause");
+
+/*Limpar a tela.*/
+    system("cls");
+
+/*Loop usado para reiniciar o jogo se o jogador desejar.*/
+    for(prog=0;prog<=1;){
+
+    system("color 0F");
+
+/*Apresentar o nome do jogo e uma tabela com as opções (Jogar, Regras, Sair.)*/
+    printf("----------CORRIDA DA INTELIG%cNCIA----------\n", 210);
+    printf("Escolha uma op%c%co para come%car o jogo: \n [1]Jogar \n [2]Regras  \n [3]Sair\n ", 135, 198, 135);
+
+/*Resposta da tabela*/
+        scanf("%d", &op);
+
+/*(switch case) Usado para determinar o seguimento do programa.*/
+        switch(op){
+
+/*(case 1) Ignora esse switch e continua o programa.*/
+            case 1:
+                            break;
+
+/*(case 2) Apresenta as regras do jogo.*/
+            case 2:
+                printf("-----CONHECENDO O JOGO-----\n1- Ser%c apresentado 5 perguntas.\n2- Cada pergunta vale 4 pontos.\n3- Perguntas sobre conhecimentos gerais ou quest%ces matematicas simples. \n4- O carrinho ser%c representado por 'O' e o caminho por '-'\n5- A cada acerto o carrinho anda 4 casas.\n6- Caso o resultado seja um n%cmero quebrado voc%c pode desconsiderar os n%cmeros depois da virg%cla.\n7- %c recomendado o uso de um rascunho.\n--------BOA SORTE!---------\n\n", 160, 228,160, 163, 136, 163, 163, 144);
+                printf(".\n");anima();
+                printf(".\n");anima();
+                printf(".\n");anima();
+
+                            break;
+
+/*Finaliza o jogo.*/
+            case 3:
+                return 0;
+                            break;
+        }
+
+/*Pergunta quem está jogando.*/
+                printf("Quem est%c jogando?\n", 160);
+				scanf("%s", &usu);
+				printf("Ol%c %s! Prepare-se o jogo j%c vai come%car.\n", 160, usu, 160, 135);printf(".\n");anima();printf(".\n");anima();printf(".\n");anima();
+
+/*Escolher modalidade.*/
+				printf("Escolha o tipo de jogo:\n [1]Conhecimentos gerais\n [2]Problemas matem%cticos\n", 160);
+                    scanf("%d", &op2);
+                system ("cls");
+
+/*Definir se o programa irá direcionar o usúario para
+"Conhecimentos gerais" ou "Problemas matemáticos"*/
+                    switch(op2){
+
+/*Conhecimentos gerais*/
+            case 1:
+                printf("N%cO VALE USAR O GOOGLE!!!\n", 199);
+                printf(".\n");anima();
+                printf(".\n");anima();
+
+                printf("Qual a capital dos E.U.A?\n 1)Bras%clia\n 2)Jap%co\n 3)Minnesota\n 4)New York\n 5)Washington\n", 161, 198);
+                    capital= 5;
+                    scanf("%d", &resp1);
+
+/*(if e else) Define qual resposta dar ao jogador com base no que ele responder.*/
+                       if(capital==resp1){
+                printf(".\n");anima();
+                printf("Voc%c acertou!\n", 136);
+                printf("Ganhou 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest1=4;
+                       }
+                        else{
+                           erra_pergunta();
+                        quest1=0;
+                        }
+                printf("\n.\n.\n");anima();
+    system("pause");
+    system("cls");
+                printf("Qual l%cngua %c falada no Jap%co?\n 1)Portugu%cs\n 2)Ingl%cs\n 3)Japon%cs\n 4)Mandarim\n 5)Franc%cs\n", 161, 130, 198, 136, 136, 136, 136);
+                    lingua= 3;
+                    scanf("%d", &resp2);
+                        if(lingua==resp2){
+                            printf(".\n");anima();
+                            printf("Voc%c acertou!\n", 136);
+                            printf("Ganhou mais 4 pontos e seu carrinho andou 4 casas.\n");
+                        quest2=4;
+                        }
+
+                        else{
+                        erra_pergunta();
+                         quest2=0;
+                        }
+                printf("\n.\n");anima();
+                printf(".\n");anima();
+    system("pause");
+    system("cls");
+                printf("O 'Iron Man' foi criado por quem?\n 1)Stan Lee\n 2)Marvel\n 3)Dc Comics\n 4)Globo\n 5)Fausto Silva\n");
+                    heroi= 1;
+                    scanf("%d", &resp3);
+                        if(heroi==resp3){
+                printf(".\n");anima();
+                            printf("Voc%c acertou!\n", 136);
+                            printf("Ganhou mais 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest3=4;
+                        }
+                        else{
+                            erra_pergunta();
+                            quest3=0;
+                        }
+                printf(".\n");anima();
+                printf(".\n");anima();
+    system("pause");
+    system("cls");
+                printf("Quem %c o ser mais lindo do Universo?\n 1)Matheus Meirelles\n 2)Voc%c\n 3)Matheus Meirelles\n 4)Matheus Meirelles\n 5)Matheus Meirelles\n", 130, 136);
+                    lindo= 2;
+                    scanf("%d", &resp4);
+                        if(lindo==resp4){
+                printf(".\n");anima();
+                            printf("Voc%c acertou!\n", 136);
+                            printf("Ganhou mais 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest4=4;
+                        }
+                        else{
+                            erra_pergunta();
+                            quest4=0;
+                        }
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+                printf("Humanas n%co ta com nada, aqui %c exatas, responde quanto %c| 3,14 x 52%c%c |:\n 1)1.227353801\n 2)984841549\n 3)Sei l%c\n 4)1.227353800E21\n 5)1.227%c100\n", 198, 130, 130, 251, 253, 160, 94);
+                    mathr1= 3;
+                    mathr2= 4;
+                    scanf("%d", &resp5);
+                        if((mathr1==resp5)||(mathr2==resp5)){
+                printf(".\n");anima();
+                system ("cls");
+                            printf("Parab%cns! Voc%c chegou ao final do jogo! (NEM EU SABIA DESSA KK)\n", 130, 136);
+                            quest5=4;
+                        }
+                        else{
+                printf(".\n");anima();
+                            printf("Voc%c chegou no final, mas n%co conseguiu acertar todas =(\n", 136, 198);
+                            printf("Tente denovo ou saia desse jogo como um perdedor >:) (carinha de malvado)\n");
+                            quest5=0;
+                        }
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+
+/*Soma os pontos adquiridos durante o jogo.*/
+                pontos = quest1+quest2+quest3+quest4+quest5;
+
+/*Apresenta os pontos e a animação do carrinho andando.*/
+                printf("Voc%c conquistou %d pontos\n", 136, pontos);
+                printf("Portanto o seu carrinho andou %d casas...\n", pontos);
+
+/*Casas conquistadas.*/
+                    for(cont1=0; cont1<pontos; cont1++){
+                        anima1();
+                        printf("-");
+                    }
+                        anima1();
+
+/*Carrinho.*/
+                        printf("O");
+
+/*Cálcula quantas casas restam.*/
+                        resto_ponto = 20-pontos;
+
+/*Apresenta as casas restantes.*/
+                    for(cont2=0; cont2<resto_ponto; cont2++){
+                        anima1();
+                        printf("-");
+                    }
+                        printf("\n\n");
+
+            break;
+                system ("cls");
+/*Problemas matemáticos*/
+            case 2:
+                printf("N%cO VALE USAR CALCULADORA!!!\n", 199);
+                printf("\n\n");
+                printf("1. Qual o resultado da soma de %d+%d?\n", n1, n2);
+/*Cálcula a resposta correta usando uma determinada função.*/
+                r=soma(n1,n2);
+                    scanf("%d",&rU);
+                        if(r==rU){
+                printf(".\n");anima();
+                printf("Voc%c acertou!\n", 136);
+                printf("Ganhou 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest1=4;
+                        }
+                        else{
+                           erra_pergunta();
+                        quest1=0;
+                        }
+
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+
+                printf("2. Qual o resultado da subtra%c%co de %d-%d?\n", 135, 198, n1, n2);
+                r=sub(n1,n2);
+                    scanf("%d",&rU);
+                        if(r==rU){
+                printf(".\n");anima();
+                printf("Voc%c acertou!\n", 136);
+                printf("Ganhou mais 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest2=4;
+                        }
+                        else{
+                           erra_pergunta();
+                        quest2=0;
+                        }
+
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+
+                printf("3. Qual o resultado da multiplica%c%co de %dx%d?\n", 135, 198, n1, n2);
+                r=mult(n1,n2);
+                    scanf("%d",&rU);
+                        if(r==rU){
+                printf(".\n");anima();
+                printf("Voc%c acertou!\n", 136);
+                printf("Ganhou mais 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest3=4;
+                        }
+                        else{
+                           erra_pergunta();
+                        quest3=0;
+                        }
+
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+
+                printf("4. Qual o resultado da divis%co de %d/%d?\n", 198, n1, n2);
+                r=divi(n1,n2);
+                    scanf("%d",&rU);
+                        if(r==rU){
+                printf(".\n");anima();
+                printf("Voc%c acertou!\n", 136);
+                printf("Ganhou mais 4 pontos e seu carrinho andou 4 casas.\n");
+                            quest4=4;
+                        }
+                        else{
+                           erra_pergunta();
+                        quest4=0;
+                        }
+
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+
+                printf("5. Qual o resultado de %d%c?\n", n1, 253);
+                r=quad(n1);
+                    scanf("%d",&rU);
+                        if(r==rU){
+                printf(".\n");anima();
+                system ("cls");
+                            printf("Parab%cns! Voc%c chegou ao final do jogo!\n", 130, 136);
+                            quest5=4;
+                        }
+                        else{
+                printf(".\n");anima();
+                            printf("Voc%c chegou no final, mas n%co conseguiu acertar todas =(\n", 136, 198);
+                            printf("Tente denovo ou saia desse jogo como um perdedor >:) (carinha de malvado)\n");
+                            quest5=0;
+                        }
+                printf(".\n.\n");anima();
+    system("pause");
+    system("cls");
+
+                pontos = quest1+quest2+quest3+quest4+quest5;
+
+                printf("Voc%c conquistou %d pontos\n", 136, pontos);
+                printf("Portanto o seu carrinho andou %d casas...\n", pontos);
+                    for(cont1=0; cont1<pontos; cont1++){
+                        anima1();
+                        printf("-");
+                    }
+                        anima1();
+                        printf("O");
+
+                        resto_ponto = 20-pontos;
+
+                    for(cont2=0; cont2<resto_ponto; cont2++){
+                        anima1();
+                        printf("-");
+                    }
+                        printf("\n\n");
+
+            break;
+                    }
+/*Verifica se o jogador deseja jogar novamente ou se ele deseja finalizar*/
+        printf("Deseja jogar novamente?\n[1]Sim\n[2]N%co\n", 198);
+                    scanf("%d", &prog);
+                system ("cls");
+    }
+/*Finaliza o programa principal.*/
+return 0;
+}
